@@ -69,4 +69,13 @@ public class BatchService{
         }
         return batches.get(0);
     }
+
+    public List<Batch> allBatch() throws Exception{
+        List<Batch> batchList = batchRepository.findAll();
+
+        if(batchList.isEmpty()){
+            throw new Exception("Batch is empty!");
+        }
+        return batchList;
+    }
 }

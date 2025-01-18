@@ -2,7 +2,6 @@ package com.example.TwinleavesAssignment.Controller;
 
 import com.example.TwinleavesAssignment.Models.GtinModel;
 import com.example.TwinleavesAssignment.Service.GtinService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

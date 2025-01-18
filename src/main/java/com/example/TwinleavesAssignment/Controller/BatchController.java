@@ -56,4 +56,14 @@ public class BatchController {
             return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("allBatch")
+    public ResponseEntity<List<Batch>> allBatch(){
+        try{
+            List<Batch> result = batchService.allBatch();
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+        }
+    }
 }

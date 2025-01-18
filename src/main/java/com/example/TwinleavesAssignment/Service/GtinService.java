@@ -60,7 +60,16 @@ public class GtinService {
     }
 
     public List<GtinModel> positiveAvailableQuantity() throws Exception{
-        List<GtinModel> gtinModelList = gtinRepository.findAll();
+        List<GtinModel> filteredGtinModels = gtinRepository.findGtinWithPositiveAvailableQuantity();
+
+        if(filteredGtinModels.isEmpty()){
+            throw new Exception("Gtin is Empty with Positive Available Quantity!");
+        }
+
+        return filteredGtinModels;
+
+
+        /* List<GtinModel> gtinModelList = gtinRepository.findAll();
 
         if(gtinModelList.isEmpty()){
             throw new Exception("Gtin is Empty with Positive Available Quantity!");
@@ -73,7 +82,7 @@ public class GtinService {
 
             for(Batch batch : gtinModel.getBatchList()){
                 if (batch.getAvailableQuantity() > 0) {
-                    System.out.println("Batch ID: " + batch.getBatchId() + ", Available Quantity: " + batch.getAvailableQuantity());
+                    // System.out.println("Batch ID: " + batch.getBatchId() + ", Available Quantity: " + batch.getAvailableQuantity());
                     filteredBatches.add(batch);
                 }
             }
@@ -84,6 +93,6 @@ public class GtinService {
             }
         }
 
-        return filteredGtinModels;
+        return filteredGtinModels; */
     }
 }
